@@ -1,6 +1,3 @@
-"set runtimepath^=~/.vim runtimepath+=~/.vim/after
-"let &packpath=&runtimepath
-"source ~/.vimrc
 set number
 set mouse=a
 syntax enable
@@ -21,28 +18,19 @@ set expandtab
 set shiftwidth=4
 " deshabilitamos la creacion de archivos swp 
 set noswapfile
-" B√∫squeda (https://victorhckinthefreeworld.com/2018/09/20/mejora-tu-experiencia-u  sando-el-editor-vim/)
+" Busqueda (https://victorhckinthefreeworld.com/2018/09/20/mejora-tu-experiencia-u  sando-el-editor-vim/)
 set hlsearch " Resaltamos la busquedas
 set incsearch  " Para realizar b√∫squedas incrementales mientras est√°s escribiendo
 set ignorecase " Para realizar b√∫squedas ignorando si est√°n en may√∫sculas o min√∫sc  ulas
-set smartcase " Para buscar sin tener en cuenta la configuraci√≥n anterior ignoreca  se cuando ambos ignorecasey smartcase est√°n activados y el patr√≥n de b√∫squeda cont  iene may√∫sculas
-
-
+set smartcase " Para buscar sin tener en cuenta la configuraci√≥n anterior ignoreca  se cuando ambos ignorecasey smartcase est√°n activados y el patr√≥n de b√∫squeda cont  iene mayusculas
 
 call plug#begin('~/.vim/plugged')
 """" temas
 Plug 'sainnhe/gruvbox-material'
 Plug 'sainnhe/edge'
 Plug 'sainnhe/sonokai'
-""Plug 'EdenEast/nightfox.nvim'
-"""lsp https://github.com/neovim/nvim-lspconfig
-"Plug 'neovim/nvim-lspconfig'
-""" autocompletado https://github.com/nvim-lua/completion-nvim
-"Plug 'nvim-lua/completion-nvim'
-"Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 
 " Plugins para javascript
 Plug 'HerringtonDarkholme/yats.vim'
@@ -63,15 +51,11 @@ Plug 'tpope/vim-commentary'
 
 " Identacion
 Plug 'Yggdroot/indentLine'
-
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
- 
 Plug 'preservim/nerdtree'
 " Para ver iconos con ayuda de nerdfonts
 Plug 'ryanoasis/vim-devicons' 
-
-
 Plug '907th/vim-auto-save'
 "" git
 Plug 'airblade/vim-gitgutter'
@@ -81,15 +65,10 @@ Plug 'APZelos/blamer.nvim'
 " Plug 'preservim/tagbar'
 Plug 'jiangmiao/auto-pairs'
 Plug 'mhinz/vim-startify'
-
 "Telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
-
-
-
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-"Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 call plug#end()
 
 let mapleader=" "
@@ -144,21 +123,6 @@ let g:sonokai_colors_override = {
 
 colorscheme sonokai
 
-
-"" snippets configuracion
-"let g:UtilSnipsExpandTrigger="<tab>"
-
-
-"" Prettier configuracion
-"command! -nargs=0 Prettier :CocCommand prettier.formatFile
-"nnoremap <C-D> :Prettier<CR>
-
-
-"" toogle bar
-"nmap <F8> :TagbarToggle<CR>
-
-
-
 "" configuracion  nerdtree
 ""CONFIGURACION PARA Plug 'scrooloose/nerdtree'
 "" para acceder a este solo pulstamos epacio + nt
@@ -167,14 +131,9 @@ nmap <Leader>nt :NERDTreeFind<CR>
 autocmd VimEnter * NERDTree | wincmd p
 let NERDTreeShowHidden=1
 
-"" Confirguracion Comentarios
-"nnoremap <space>/ :Commentary<CR>
-"vnoremap <space>/ :Commentary<CR>
-
 "  " Copy/paste from system clipboard
  map <C-y> "+y<CR>
 imap <C-y> "+y<CR>
-
 
 " Find files using Telescope command-line sugar.
 nnoremap <Leader>ff <cmd>lua require('telescope.builtin').git_files()<cr>
@@ -182,20 +141,14 @@ nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 
 
 "" Configuramos Airline
-"" let g:airline#extensions#tabline#left_sep = ' '
-"" let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme='solarized_flood'
-"" let g:airline#extensions#tabline#left_sep = ' '
-"" let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#show_tabs = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
-
 let g:airline#extensions#tabline#show_splits = 0 "enable/disable displaying open splits per tab (only when tabs are opened). >
 let g:airline#extensions#tabline#show_buffers = 0 " enable/disable displaying buffers with a single tab
-"" let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 
 ""Autosave
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -208,9 +161,8 @@ let g:blamer_delay = 10
 let g:blamer_show_in_visual_modes = 0
 let g:blamer_prefix = ' > '
 
+" Configuracion para emmet
 let g:user_emmet_leader_key=','
-
-
 
 " configuracion copiada para coc
 " Some servers have issues with backup files, see #649.
@@ -369,9 +321,3 @@ inoremap <silent><expr> <TAB>
  \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 inoremap <silent><expr> <c-space> coc#refresh()
-
-
-
-
-
-
